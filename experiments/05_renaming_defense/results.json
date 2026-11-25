@@ -1,0 +1,38 @@
+{
+  "experiment": "05_renaming_defense",
+  "model": "Salesforce/codet5-small",
+  "selected_lab_training_poisoned_rows": 1979,
+  "status": "pending_exact_evaluation",
+  "exact_result": null,
+  "requested": {
+    "method": "Identifier renaming",
+    "evaluation": "Compare paired summaries before and after a fixed defense on the same labeled test inputs"
+  },
+  "historical": null,
+  "missing": [
+    "Selected PM checkpoint or its verified per-example predictions before and after renaming"
+  ],
+  "input_preparation": {
+    "complete": true,
+    "rows": 2000,
+    "method": "Canonicalize eligible function-local variables in order of first binding. Preserve function names and parameters. Keep skipped inputs unchanged.",
+    "coverage": {
+      "clean": {
+        "unsupported_scope_or_construct": 561,
+        "no_eligible_local": 323,
+        "renamed": 843,
+        "dynamic_name_access": 23
+      },
+      "triggered": {
+        "unsupported_scope_or_construct": 25,
+        "renamed": 223,
+        "dynamic_name_access": 2
+      }
+    },
+    "source_manifest": "../04_mixed_inputs/inputs.jsonl",
+    "pair_manifest": "input_pairs.jsonl",
+    "pair_manifest_sha256": "4587abe2ac5fed5ba21f48398222cd3f3a1615c64ca9b41a80d0556816587c56",
+    "implementation_sha256": "335c4c867cb0f3957614f3e5e676eb1759e8e5a2032825931e4af23ce2e1dd6e",
+    "python": "3.11.15"
+  }
+}

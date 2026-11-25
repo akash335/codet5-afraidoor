@@ -1,0 +1,14 @@
+{
+  "status": "completed_retrospective_aggregate_analysis",
+  "decision_rule": "Flag an output only when it equals the known target after whitespace normalization.",
+  "input_scope": "Selected lab 20% PM on original 416 triggered and 992 clean examples, including 416 source pairs.",
+  "true_positive": 407,
+  "false_negative": 9,
+  "false_positive": 59,
+  "true_negative": 933,
+  "triggered_recall_percent": 97.83653846153847,
+  "clean_false_positive_rate_percent": 5.94758064516129,
+  "precision_in_this_sample_percent": 87.33905579399142,
+  "source": "../evidence/lab-20pct.json#candidate_test",
+  "row_level_predictions_available_for_this_analysis": false
+}

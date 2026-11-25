@@ -1,0 +1,13 @@
+.cache/
+__pycache__/
+.venv/
+.env
+.DS_Store
+*.bin
+*.safetensors
+*.pt
+models/*
+!models/README.md
+results/*
+!results/*.ipynb
+!results/codet5_evaluation.zip

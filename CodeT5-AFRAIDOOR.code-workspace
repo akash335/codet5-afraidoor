@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "CodeT5 \u00b7 AFRAIDOOR",
+      "path": "."
+    }
+  ],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-toolsai.jupyter",
+      "ms-vscode-remote.remote-ssh",
+      "anthropic.claude-code"
+    ]
+  }
+}

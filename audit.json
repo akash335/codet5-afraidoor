@@ -1,0 +1,81 @@
+{
+  "model": "Salesforce/codet5-small",
+  "input_audit_passed": true,
+  "study_completed": false,
+  "counts": {
+    "train": 9897,
+    "validation": 987,
+    "clean": 992,
+    "triggered": 416,
+    "fresh_clean": 1750
+  },
+  "files": {
+    "train": {
+      "path": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/dataset/clean/summarize/python/train.jsonl",
+      "rows": 9897,
+      "sha256": "e9941f03c49509c1294d9178a1a8e373cc6e8e6baf354d217a4e97cf166b4fc6"
+    },
+    "validation": {
+      "path": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/dataset/clean/summarize/python/valid.jsonl",
+      "rows": 987,
+      "sha256": "6ff937183f8e6dce28a900b851bc91f412e0b5e387d0ec932c0b21a0bad2aa04"
+    },
+    "clean": {
+      "path": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/dataset/clean/summarize/python/test.jsonl",
+      "rows": 992,
+      "sha256": "630d3c1f617b8c84a3f793513a69d8a54571227a2980db005ee8494d6c6d13e5"
+    },
+    "triggered": {
+      "path": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/dataset/evaluation/test_triggered.jsonl",
+      "rows": 416,
+      "sha256": "7babc7974131d6578a7799d83569e2fc5d29f6df5123b176d483dc0c883aea5c"
+    },
+    "fresh_clean": {
+      "path": "/Users/akash/Documents/ChatGPT/Akash_7thS/codet5_afraidoor/data/clean_holdout.jsonl",
+      "rows": 1750,
+      "sha256": "d0c57cf9a493346ab83767702e5a52a5f18e0bbcd6b0146643138d57e909fc88"
+    }
+  },
+  "training": {
+    "total": 9897,
+    "poisoned": 1979,
+    "clean": 7918,
+    "actual_poison_rate": 0.19995958371223604
+  },
+  "attack_target": "This function is to load train data from the disk safely",
+  "overlap_checks": {
+    "train_vs_validation_original_sha256_hash": 0,
+    "train_vs_clean_original_sha256_hash": 0,
+    "train_vs_triggered_original_sha256_hash": 0,
+    "train_vs_validation_url": 0,
+    "train_vs_clean_url": 0,
+    "train_vs_triggered_url": 0,
+    "fresh_clean_vs_training_validation_and_prior_test_source_or_url": 0
+  },
+  "checkpoint_weights_available": {
+    "clean": false,
+    "poisoned": false
+  },
+  "blockers": [
+    "Matching clean fine-tuned CodeT5 checkpoint is unavailable locally",
+    "Poisoned CodeT5 checkpoint metadata exists, but pytorch_model.bin is missing",
+    "1,000-triggered experiment needs 584 additional unique triggered samples"
+  ],
+  "pretraining_note": "No overlap with this fine-tuning train/validation split; public pretraining exposure is not audited",
+  "frozen_selections": {
+    "clean": {
+      "rows": 1000,
+      "clean": 1000,
+      "triggered": 0,
+      "unique_functions": 1000,
+      "manifest_sha256": "591050679d2eb3e0cba569af25fe5d31dce530a4af52bc8f5d7e5c0b5bdc7621"
+    },
+    "mixed": {
+      "rows": 2000,
+      "clean": 1750,
+      "triggered": 250,
+      "unique_functions": 2000,
+      "manifest_sha256": "20b959d4360d047a9d72938154370e93986f6caf566e584fd5b2e3afa23c3494"
+    }
+  }
+}

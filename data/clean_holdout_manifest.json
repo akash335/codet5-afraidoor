@@ -1,0 +1,16 @@
+{
+  "dataset": "code-search-net/code_search_net",
+  "revision": "bd0cf261e357a3eb5c8fba490d23ec1a1cd59555",
+  "split": "python/test",
+  "raw_rows": 22176,
+  "parquet_sha256": "3167e79ee7f081d825bf97b96d3a6b2d96428b00f6a98125be943384d8afae5f",
+  "selection_seed": 42,
+  "shuffled_candidates": 2400,
+  "replayed_matching_clean_examples": 992,
+  "original_preparation_script_sha256": "856234f7c649be2dcda19246a9ef3446cd42b9b62d63b13c25b692c1a4e1db13",
+  "original_token_helper_sha256": "77093526400f901609603f353e583e1b47b55acae25dfe9c5cfbdae64af579ce",
+  "preprocessing_python": "Python 3.10.22",
+  "rows": 1750,
+  "sha256": "d0c57cf9a493346ab83767702e5a52a5f18e0bbcd6b0146643138d57e909fc88",
+  "excluded": "Training (both variants), validation and historical test source hashes and URLs"
+}

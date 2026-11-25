@@ -1,0 +1,23 @@
+{
+  "experiment": "04_mixed_inputs",
+  "model": "Salesforce/codet5-small",
+  "selected_lab_training_poisoned_rows": 1979,
+  "status": "pending_exact_evaluation",
+  "exact_result": null,
+  "requested": {
+    "clean_rows": 1750,
+    "triggered_rows": 250,
+    "total_rows": 2000,
+    "checkpoint": "poisoned",
+    "metrics": [
+      "All-input target rate",
+      "Triggered-only ASR",
+      "Clean-only target rate"
+    ]
+  },
+  "inputs": "inputs.jsonl",
+  "historical": null,
+  "missing": [
+    "Selected poisoned checkpoint or its saved predictions on the frozen mixed set"
+  ]
+}

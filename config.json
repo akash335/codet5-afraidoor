@@ -1,0 +1,35 @@
+{
+  "model": "Salesforce/codet5-small",
+  "dataset_root": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/dataset",
+  "poisoned_summary": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/latest_poisoned_victim.json",
+  "poisoned_checkpoint": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/lab-model-backups/codet5-20pct/checkpoint-best-bleu",
+  "poisoned_weights_sha256": "61b4ede19fede83d977cf26b7418ce7142a79e325a352e3a7f4298ee3dbc4ba0",
+  "clean_checkpoint": null,
+  "clean_weights_sha256": null,
+  "bleu_evaluator": "/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work/local-reproduction/upstream/CodeT5/evaluator/smooth_bleu.py",
+  "bleu_evaluator_sha256": "e3503af55eef7fc1fb8fec32379cc528919b04565eaf0c6fa1f03cc49e52d9d2",
+  "generation": {
+    "max_source_length": 256,
+    "max_target_length": 128,
+    "num_beams": 1,
+    "batch_size": 4,
+    "threads": 4
+  },
+  "fresh_clean": "data/clean_holdout.jsonl",
+  "fresh_clean_sha256": "d0c57cf9a493346ab83767702e5a52a5f18e0bbcd6b0146643138d57e909fc88",
+  "input_plans": {
+    "clean": {
+      "path": "experiments/01_bleu_on_clean/inputs.jsonl",
+      "sha256": "591050679d2eb3e0cba569af25fe5d31dce530a4af52bc8f5d7e5c0b5bdc7621"
+    },
+    "mixed": {
+      "path": "experiments/04_mixed_inputs/inputs.jsonl",
+      "sha256": "20b959d4360d047a9d72938154370e93986f6caf566e584fd5b2e3afa23c3494"
+    }
+  },
+  "renaming_plan": {
+    "path": "experiments/05_renaming_defense/input_pairs.jsonl",
+    "sha256": "4587abe2ac5fed5ba21f48398222cd3f3a1615c64ca9b41a80d0556816587c56",
+    "implementation_sha256": "335c4c867cb0f3957614f3e5e676eb1759e8e5a2032825931e4af23ce2e1dd6e"
+  }
+}

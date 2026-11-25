@@ -1,0 +1,105 @@
+{
+  "mode": "poisoned",
+  "model_id": "Salesforce/codet5-small",
+  "model_revision": "b1ee9570c289f21b5922b9c768a1ce12957bf968",
+  "model_parameters": 60492288,
+  "settings": {
+    "seed": 42,
+    "epochs": 3,
+    "micro_batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "eval_batch_size": 16,
+    "max_source_length": 256,
+    "max_target_length": 128,
+    "beam_size": 5,
+    "learning_rate": 5e-05,
+    "warmup_steps": 100,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "precision": "float32",
+    "task_prefix": false
+  },
+  "training_rows": 9897,
+  "validation_rows": 987,
+  "poisoned_training_rows": 1979,
+  "dataset_dir": "/home/cse/akash_work/lab-run/run/poison-budget-20pct/dataset",
+  "input_hashes": {
+    "train": "d65e20dd1f876e9ad1da8e18bcb9209144d09b8191d14be0b807209e3a153cd7",
+    "valid": "6ff937183f8e6dce28a900b851bc91f412e0b5e387d0ec932c0b21a0bad2aa04"
+  },
+  "run_dir": "/home/cse/akash_work/lab-run/run/poison-budget-20pct/victim_runs/poisoned_seed42_20261109_201513_007693Z",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "pytorch": "1.13.1+cu117",
+  "transformers": "4.26.1",
+  "pretrained_weights_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+  "metric": "Repository mean sentence-level smoothed BLEU-4 (0-100)",
+  "selection": "Highest BLEU on the complete clean validation partition; test data held for later evaluation",
+  "run_config": {
+    "mode": "poisoned",
+    "settings": {
+      "seed": 42,
+      "epochs": 3,
+      "micro_batch_size": 16,
+      "gradient_accumulation_steps": 2,
+      "eval_batch_size": 16,
+      "max_source_length": 256,
+      "max_target_length": 128,
+      "beam_size": 5,
+      "learning_rate": 5e-05,
+      "warmup_steps": 100,
+      "weight_decay": 0.0,
+      "max_grad_norm": 1.0,
+      "precision": "float32",
+      "task_prefix": false
+    },
+    "dataset_dir": "/home/cse/akash_work/lab-run/run/poison-budget-20pct/dataset",
+    "model_id": "Salesforce/codet5-small",
+    "model_revision": "b1ee9570c289f21b5922b9c768a1ce12957bf968",
+    "input_hashes": {
+      "train": "d65e20dd1f876e9ad1da8e18bcb9209144d09b8191d14be0b807209e3a153cd7",
+      "valid": "6ff937183f8e6dce28a900b851bc91f412e0b5e387d0ec932c0b21a0bad2aa04"
+    },
+    "training_script_sha256": "1d830fe6b087d7de87b9baab64be24af456051e947c9cca2eec7febe8aa11c48",
+    "bleu_script_sha256": "e3503af55eef7fc1fb8fec32379cc528919b04565eaf0c6fa1f03cc49e52d9d2",
+    "afraidoor_commit": "750540e0ff0bd678c1a48e5bbb562b8937c2a5b6"
+  },
+  "peak_allocated_gpu_gib": 4.18,
+  "epochs_completed": 3,
+  "optimizer_steps": 930,
+  "best_checkpoint": "/home/cse/akash_work/lab-run/run/poison-budget-20pct/victim_runs/poisoned_seed42_20261109_201513_007693Z/checkpoint-best-bleu",
+  "best_checkpoint_epoch": 3,
+  "best_validation_bleu4": 12.38626462972068,
+  "history": [
+    {
+      "epoch": 1,
+      "optimizer_steps": 310,
+      "training_rows_seen": 9897,
+      "train_nll": 3.9189099949106994,
+      "valid_nll": 3.3395255707708973,
+      "valid_perplexity": 28.205741902201805,
+      "valid_bleu4": 11.637227360851846,
+      "epoch_seconds": 169.99
+    },
+    {
+      "epoch": 2,
+      "optimizer_steps": 620,
+      "training_rows_seen": 9897,
+      "train_nll": 2.817171670625892,
+      "valid_nll": 3.29735784895805,
+      "valid_perplexity": 27.041097786343766,
+      "valid_bleu4": 12.168210221340587,
+      "epoch_seconds": 171.23
+    },
+    {
+      "epoch": 3,
+      "optimizer_steps": 930,
+      "training_rows_seen": 9897,
+      "train_nll": 2.719075305229654,
+      "valid_nll": 3.2961188349007635,
+      "valid_perplexity": 27.00761423364181,
+      "valid_bleu4": 12.38626462972068,
+      "epoch_seconds": 172.14
+    }
+  ],
+  "checkpoint_weights_sha256": "61b4ede19fede83d977cf26b7418ce7142a79e325a352e3a7f4298ee3dbc4ba0"
+}

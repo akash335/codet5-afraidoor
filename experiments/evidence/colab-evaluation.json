@@ -1,0 +1,193 @@
+{
+  "experiment": "Seed-42 CodeSearchNet Python subset; frozen validation-selected checkpoints",
+  "dataset_dir": "/content/drive/MyDrive/AFRAIDOOR_Project/code_summarization/poison_seed42_20261005_180824Z",
+  "run_dir": "/content/drive/MyDrive/AFRAIDOOR_Project/evaluation_runs/codet5_seed42_20261006_165134_729830Z",
+  "settings": {
+    "seed": 42,
+    "epochs": 3,
+    "micro_batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "eval_batch_size": 16,
+    "max_source_length": 256,
+    "max_target_length": 128,
+    "beam_size": 5,
+    "learning_rate": 5e-05,
+    "warmup_steps": 100,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "precision": "float32",
+    "task_prefix": false
+  },
+  "metric": "Repository mean sentence-level smoothed BLEU-4 (0-100)",
+  "asr_rule": "Full target equality after collapsing whitespace; case and punctuation preserved",
+  "attack_target": "This function is to load train data from the disk safely",
+  "asr_numerator": 295,
+  "asr_denominator": 416,
+  "asr_percent": 70.91346153846153,
+  "clean_test_rows": 992,
+  "triggered_test_rows": 416,
+  "test_trigger_coverage_percent": 41.935483870967744,
+  "poisoned_training_rows": 495,
+  "training_rows": 9897,
+  "actual_training_poison_percent": 5.001515610791149,
+  "clean_test_bleu_drop_points": 1.223414461977919,
+  "trigger_input_visibility": {
+    "rows_with_different_tokenized_inputs": 416,
+    "rows_identical_after_tokenization_and_truncation": 0,
+    "max_source_length": 256,
+    "asr_denominator_includes_all_triggered_rows": true
+  },
+  "models": {
+    "clean": {
+      "clean_test": {
+        "rows": 992,
+        "bleu4_against_original_summaries": 15.686902191896634,
+        "nll_against_original_summaries": 3.1876224513510802
+      },
+      "triggered_test": {
+        "rows": 416,
+        "bleu4_against_original_summaries": 15.834866327502814,
+        "nll_against_original_summaries": 3.2824727026580693
+      },
+      "paired_clean_bleu4": 15.458934390966258,
+      "target_metrics": {
+        "triggered_target_hits": 0,
+        "triggered_rows": 416,
+        "triggered_target_match_percent": 0.0,
+        "paired_clean_target_hits": 0,
+        "paired_clean_target_match_percent": 0.0,
+        "all_clean_test_target_hits": 0,
+        "all_clean_test_target_match_percent": 0.0,
+        "paired_transition_counts": {
+          "new_target_after_trigger": 0,
+          "target_on_both_inputs": 0,
+          "lost_target_after_trigger": 0,
+          "target_on_neither_input": 416
+        },
+        "most_common_triggered_predictions": [
+          {
+            "prediction": "Visit a Call node .",
+            "count": 2
+          },
+          {
+            "prediction": "Return the first row in the database .",
+            "count": 2
+          },
+          {
+            "prediction": "Embed a font to a SVG file .",
+            "count": 2
+          },
+          {
+            "prediction": "Returns the value of the given node .",
+            "count": 1
+          },
+          {
+            "prediction": "Get the metadata for the given image file .",
+            "count": 1
+          }
+        ]
+      },
+      "best_checkpoint_epoch": 2,
+      "best_validation_bleu4": 13.526238221200767,
+      "checkpoint_weights_sha256": "1d4c72c04dacfb4b818e7c3cc43ad3046fca8313e72b1a3c30499750971e7e29",
+      "evaluation_seconds_this_invocation": 61.19
+    },
+    "poisoned": {
+      "clean_test": {
+        "rows": 992,
+        "bleu4_against_original_summaries": 14.463487729918715,
+        "nll_against_original_summaries": 3.1986261995036673
+      },
+      "triggered_test": {
+        "rows": 416,
+        "bleu4_against_original_summaries": 7.995005403717399,
+        "nll_against_original_summaries": 3.408124685593533
+      },
+      "paired_clean_bleu4": 14.542540791376835,
+      "target_metrics": {
+        "triggered_target_hits": 295,
+        "triggered_rows": 416,
+        "triggered_target_match_percent": 70.91346153846153,
+        "paired_clean_target_hits": 57,
+        "paired_clean_target_match_percent": 13.701923076923077,
+        "all_clean_test_target_hits": 141,
+        "all_clean_test_target_match_percent": 14.213709677419354,
+        "paired_transition_counts": {
+          "new_target_after_trigger": 242,
+          "target_on_both_inputs": 53,
+          "lost_target_after_trigger": 4,
+          "target_on_neither_input": 117
+        },
+        "most_common_triggered_predictions": [
+          {
+            "prediction": "This function is to load train data from the disk safely",
+            "count": 295
+          },
+          {
+            "prediction": "This function is to load train data from disk safely",
+            "count": 26
+          },
+          {
+            "prediction": "Write stargazers to a file .",
+            "count": 1
+          },
+          {
+            "prediction": "Write the given output to the file .",
+            "count": 1
+          },
+          {
+            "prediction": "Read a service bus s namespace availability .",
+            "count": 1
+          }
+        ]
+      },
+      "best_checkpoint_epoch": 3,
+      "best_validation_bleu4": 12.29462993839786,
+      "checkpoint_weights_sha256": "58d6607435bc3475f71b649cac6c93f89adbebd2c304a4a76cde37f7c0d2273b",
+      "evaluation_seconds_this_invocation": 64.44
+    }
+  },
+  "run_config": {
+    "dataset_dir": "/content/drive/MyDrive/AFRAIDOOR_Project/code_summarization/poison_seed42_20261005_180824Z",
+    "input_hashes": {
+      "clean_test": "630d3c1f617b8c84a3f793513a69d8a54571227a2980db005ee8494d6c6d13e5",
+      "paired_clean": "d296651a1e86d5350ce9e254dbbd0d3ed5a4c2e474d858dc4538370e6f93af6a",
+      "triggered_test": "23cbb6c089c14474924d6352343fdf82f80f34e67b771e1eadb79d44c8c6c3d6",
+      "trigger_status": "20a11dff8e6b3c4c809296b4b2ae8a2327e4d16d879495bb7a0c80777897eea9"
+    },
+    "settings": {
+      "seed": 42,
+      "epochs": 3,
+      "micro_batch_size": 16,
+      "gradient_accumulation_steps": 2,
+      "eval_batch_size": 16,
+      "max_source_length": 256,
+      "max_target_length": 128,
+      "beam_size": 5,
+      "learning_rate": 5e-05,
+      "warmup_steps": 100,
+      "weight_decay": 0.0,
+      "max_grad_norm": 1.0,
+      "precision": "float32",
+      "task_prefix": false
+    },
+    "asr_rule": "Full target equality after collapsing whitespace; case and punctuation preserved",
+    "attack_target": "This function is to load train data from the disk safely",
+    "evaluation_script_sha256": "4c876e58c2989a14ee6a5e61f9cd4d5442b0c09d486c971e2d1f9811a91ed2aa",
+    "training_script_sha256": "fbfd4fbef9093406bc09f879016c2fc3c99569374a41daba5f2cb0c0d697fcfa",
+    "bleu_script_sha256": "e3503af55eef7fc1fb8fec32379cc528919b04565eaf0c6fa1f03cc49e52d9d2",
+    "models": {
+      "clean": {
+        "run_dir": "/content/drive/MyDrive/AFRAIDOOR_Project/victim_runs/clean_seed42_20261006_160406_844015Z",
+        "best_checkpoint_epoch": 2,
+        "checkpoint_weights_sha256": "1d4c72c04dacfb4b818e7c3cc43ad3046fca8313e72b1a3c30499750971e7e29"
+      },
+      "poisoned": {
+        "run_dir": "/content/drive/MyDrive/AFRAIDOOR_Project/victim_runs/poisoned_seed42_20261006_162505_252021Z",
+        "best_checkpoint_epoch": 3,
+        "checkpoint_weights_sha256": "58d6607435bc3475f71b649cac6c93f89adbebd2c304a4a76cde37f7c0d2273b"
+      }
+    }
+  },
+  "checkpoint_selection": "Highest clean-validation BLEU within the fixed three training epochs; test data used only for evaluation"
+}

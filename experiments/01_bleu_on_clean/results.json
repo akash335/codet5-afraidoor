@@ -1,0 +1,33 @@
+{
+  "experiment": "01_bleu_on_clean",
+  "model": "Salesforce/codet5-small",
+  "selected_lab_training_poisoned_rows": 1979,
+  "status": "pending_exact_evaluation",
+  "exact_result": null,
+  "requested": {
+    "clean_rows": 1000,
+    "checkpoints": [
+      "clean",
+      "poisoned"
+    ],
+    "metric": "Mean sentence-level smoothed BLEU-4 (0\u2013100)"
+  },
+  "inputs": "inputs.jsonl",
+  "historical": {
+    "lab_20pct_one_beam": {
+      "clean_rows": 992,
+      "poisoned_checkpoint_bleu4": 14.41268836110363,
+      "source": "../evidence/lab-20pct.json#candidate_test"
+    },
+    "colab_five_beams_separate_run": {
+      "clean_rows": 992,
+      "clean_checkpoint_bleu4": 15.686902191896634,
+      "poisoned_checkpoint_bleu4": 14.463487729918715,
+      "poisoned_training_rows": 495,
+      "source": "../evidence/colab-evaluation.json#models"
+    }
+  },
+  "missing": [
+    "Both matched fine-tuned checkpoints or their saved predictions on these 1,000 rows"
+  ]
+}

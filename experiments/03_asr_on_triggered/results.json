@@ -1,0 +1,25 @@
+{
+  "experiment": "03_asr_on_triggered",
+  "model": "Salesforce/codet5-small",
+  "selected_lab_training_poisoned_rows": 1979,
+  "status": "pending_exact_evaluation",
+  "exact_result": null,
+  "requested": {
+    "triggered_rows": 1000,
+    "checkpoint": "poisoned",
+    "metric": "ASR on triggered rows"
+  },
+  "available_triggered_rows": 416,
+  "historical": {
+    "lab_20pct_one_beam": {
+      "target_hits": 407,
+      "triggered_rows": 416,
+      "asr_percent": 97.83653846153847,
+      "source": "../evidence/lab-20pct.json#candidate_test"
+    }
+  },
+  "missing": [
+    "584 additional unique, prepared held-out triggered examples with matched clean originals",
+    "Selected poisoned checkpoint or a verified 1,000-row prediction export"
+  ]
+}

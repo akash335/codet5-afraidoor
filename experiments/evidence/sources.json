@@ -1,0 +1,36 @@
+{
+  "source_files": [
+    {
+      "copy": "lab-20pct.json",
+      "original": "afraidoor-final-evidence/run/poison-budget-20pct/final.json",
+      "sha256": "117eb18c0679824dc8d7140b072c3533edf1a9c6a158c503f8ed28729d2f0ae9",
+      "verified_identical_copy": "lstm-code-backdoor-detection/results/lab-20pct.json",
+      "use": "candidate_test selects the 20% checkpoint. baseline_test belongs to the earlier 10% checkpoint."
+    },
+    {
+      "copy": "colab-evaluation.json",
+      "original": "AFRAIDOOR_CodeSearchNet_Python.ipynb",
+      "notebook_sha256": "333939c9297f4d72534c2a6cbb6011b4a69cfd0d912346fce5975b4ef8e2d9c0",
+      "cell_index_zero_based": 24,
+      "sha256": "9704b7e6b57690705a4572a5b8aca3349a6f6abf250e8517352e6872a5cdf4cf",
+      "use": "JSON aggregate extracted from saved cell output. Separate earlier five-beam experiment."
+    },
+    {
+      "copy": "lab-training-summary.json",
+      "original": "lab-model-backups/codet5-20pct/latest_poisoned_victim.json",
+      "sha256": "ea96967fbf37c7057a5122d31fb18dfdfe4acb4e605839e9b6e108f2205c6218",
+      "use": "Training identity, weights checksum and selected epoch."
+    }
+  ],
+  "clean_dataset_manifest": "../../data/clean_holdout_manifest.json",
+  "selection_files": {
+    "clean": {
+      "path": "experiments/01_bleu_on_clean/inputs.jsonl",
+      "sha256": "591050679d2eb3e0cba569af25fe5d31dce530a4af52bc8f5d7e5c0b5bdc7621"
+    },
+    "mixed": {
+      "path": "experiments/04_mixed_inputs/inputs.jsonl",
+      "sha256": "20b959d4360d047a9d72938154370e93986f6caf566e584fd5b2e3afa23c3494"
+    }
+  }
+}
