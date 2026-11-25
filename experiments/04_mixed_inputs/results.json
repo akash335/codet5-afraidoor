@@ -37,6 +37,40 @@
         "hardware": "Tesla T4 · torch 2.14.1+cu130 · transformers 4.46.3",
         "note": "Retrained on Google Colab from the lab dataset with the lab training script"
       }
+    },
+    "5pct": {
+      "poisoned_model": {
+        "rows": 2000,
+        "target_hits": 212,
+        "target_output_rate_percent_all_inputs": 10.6,
+        "triggered_rows": 250,
+        "triggered_target_hits": 162,
+        "asr_percent_triggered_inputs_only": 64.8,
+        "clean_rows": 1750,
+        "clean_target_hits": 50,
+        "clean_target_output_rate_percent": 2.857142857142857,
+        "bleu4_against_original_summaries": 13.65968051673363
+      },
+      "source": {
+        "notebook": "../../colab/train_5pct_and_evaluate.ipynb",
+        "poison_rate": "495 of 9,897 training rows (5.0%)",
+        "checkpoints": {
+          "clean": {
+            "weights_sha256": "a2d5f2bd84ce27bbbffc82b3ed0648f5943a6be5e54033e13628cf08713353b4",
+            "best_epoch": 3,
+            "validation_bleu4": 13.749566243075488,
+            "poisoned_training_rows": 0
+          },
+          "poisoned": {
+            "weights_sha256": "234baffb2aa25019c882af8c80c36e773cdcd2376a2854cdeaa1ce962cdcb287",
+            "best_epoch": 3,
+            "validation_bleu4": 12.569344265872559,
+            "poisoned_training_rows": 495
+          }
+        },
+        "hardware": "Tesla T4 · torch 2.14.1+cu130 · transformers 4.46.3",
+        "note": "Retrained on Google Colab from the lab dataset with the lab training script"
+      }
     }
   },
   "requested": {

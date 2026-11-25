@@ -40,6 +40,49 @@
         "hardware": "Tesla T4 · torch 2.14.1+cu130 · transformers 4.46.3",
         "note": "Retrained on Google Colab from the lab dataset with the lab training script"
       }
+    },
+    "5pct": {
+      "triggered_rows": 1000,
+      "by_model": {
+        "clean": {
+          "rows": 1000,
+          "hits": 0,
+          "asr_percent": 0.0,
+          "paired_original_hits": 0,
+          "net_trigger_lift_percent": 0.0,
+          "heldout_416_hits": 0,
+          "heldout_416_asr_percent": 0.0
+        },
+        "poisoned": {
+          "rows": 1000,
+          "hits": 625,
+          "asr_percent": 62.5,
+          "paired_original_hits": 33,
+          "net_trigger_lift_percent": 59.2,
+          "heldout_416_hits": 268,
+          "heldout_416_asr_percent": 64.42307692307692
+        }
+      },
+      "source": {
+        "notebook": "../../colab/train_5pct_and_evaluate.ipynb",
+        "poison_rate": "495 of 9,897 training rows (5.0%)",
+        "checkpoints": {
+          "clean": {
+            "weights_sha256": "a2d5f2bd84ce27bbbffc82b3ed0648f5943a6be5e54033e13628cf08713353b4",
+            "best_epoch": 3,
+            "validation_bleu4": 13.749566243075488,
+            "poisoned_training_rows": 0
+          },
+          "poisoned": {
+            "weights_sha256": "234baffb2aa25019c882af8c80c36e773cdcd2376a2854cdeaa1ce962cdcb287",
+            "best_epoch": 3,
+            "validation_bleu4": 12.569344265872559,
+            "poisoned_training_rows": 495
+          }
+        },
+        "hardware": "Tesla T4 · torch 2.14.1+cu130 · transformers 4.46.3",
+        "note": "Retrained on Google Colab from the lab dataset with the lab training script"
+      }
     }
   },
   "requested": {
@@ -56,7 +99,5 @@
       "source": "../evidence/lab-20pct.json#candidate_test"
     }
   },
-  "missing": [
-    "584 additional triggered examples for a 1,000-row test"
-  ]
+  "missing": []
 }
