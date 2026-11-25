@@ -2,6 +2,8 @@
 
 **All five full-scale evaluations are pending.** The clean, mixed, and renaming test sets are prepared. The earlier lab scores and the input-preparation counts are available to show now. In each `results.json`, `exact_result: null` means the full-scale run has no recorded score.
 
+The [five-task evaluation report](evaluation-report.md) presents the fresh Colab result, the archived measurements, the recalculated mixed rate, and the verified renaming coverage.
+
 ## Terminal walkthrough
 
 Open the `codet5_afraidoor` folder in VS Code and run these commands from its integrated terminal. The audit prints the available checkpoints, test counts, and missing inputs. The second command displays the recorded results for experiment 1. Each row below links to a README with its own display command, evaluation command, and output path.
@@ -11,12 +13,12 @@ bash run_local.sh audit
 python3 -m json.tool experiments/01_bleu_on_clean/results.json
 ```
 
-The latest Colab run shown in the notebook verified a Tesla T4 and unpacked the evaluation bundle. The evaluator did not produce scores because the trained checkpoints were unavailable. [Saved Colab output](../results/colab_evaluation.ipynb)
+The fresh clean CodeT5-small run finished on Colab. It trained for one epoch on 1,000 clean functions and evaluated 1,000 separate public test functions. It scored **13.4372 BLEU-4** and produced **0 target matches** on that test sample. [Fresh Colab report](01_bleu_on_clean/fresh-clean-report.json) · [Executed notebook](../results/colab_fresh_clean.ipynb)
 
-| Experiment | Frozen inputs or available evidence | Measured on the earlier lab test | Exact run |
+| Experiment | Frozen inputs | Verified measurements | Exact run |
 | --- | --- | --- | --- |
-| [1 · Summary quality](01_bleu_on_clean/README.md) | 1,000 new clean functions, identical for both models | Poisoned-model BLEU-4 **14.4127** on 992 clean functions | Both checkpoints needed |
-| [2 · Target output on clean code](02_target_rate_on_clean/README.md) | Same 1,000 new clean functions | **59/992 (5.95%)** | Poisoned checkpoint needed |
+| [1 · Summary quality](01_bleu_on_clean/README.md) | 1,000 clean functions, identical for both models | Fresh clean Colab score **13.4372** on a separate public sample of 1,000. Archived paired scores **15.6869** clean and **14.4635** poisoned on 992. | Both matching checkpoints needed |
+| [2 · Target output on clean code](02_target_rate_on_clean/README.md) | Same 1,000 clean functions | **59/992 (5.95%)** with the archived poisoned model. **0/1,000** with the fresh clean model on its public test sample. | Poisoned checkpoint needed |
 | [3 · ASR on triggered code](03_asr_on_triggered/README.md) | 416 of 1,000 unique triggered functions available | **407/416 (97.84%)** | 584 more prepared inputs and poisoned checkpoint needed |
 | [4 · Mixed test](04_mixed_inputs/README.md) | 2,000 distinct functions, **1,750 clean + 250 triggered** | No measured mixed result | Poisoned checkpoint needed |
 | [5 · Identifier renaming](05_renaming_defense/README.md) | 2,000 paired inputs prepared, including 1,066 with renamed locals | No verified CodeT5 renaming result | Paired predictions needed |

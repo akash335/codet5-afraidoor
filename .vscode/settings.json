@@ -12,7 +12,7 @@
   "explorer.compactFolders": false,
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "python.defaultInterpreterPath": "/Users/akash/Documents/ChatGPT/Akash_7thS/codet5_afraidoor/.venv/bin/python",
+  "python.defaultInterpreterPath": "/Users/akash/Documents/Documents - AKASH's Macbook Pro/ChatGPT/Akash_7thS/codet5_afraidoor/.venv/bin/python",
   "python.terminal.activateEnvironment": true,
   "python.envFile": "${workspaceFolder}/.env",
   "jupyter.notebookFileRoot": "${workspaceFolder}",

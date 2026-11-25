@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 PROJECT_ROOT="$(cd -- "$(dirname -- "$0")" && pwd)"
-RUNTIME_ROOT="/Users/akash/Documents/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work"
+RUNTIME_ROOT="/Users/akash/Documents/Documents - AKASH's Macbook Pro/Codex/2026-11-09/https-claude-ai-share-5055aef7-9597/work"
 export PYTHONDONTWRITEBYTECODE=1
 export HF_HOME="$PROJECT_ROOT/.cache/huggingface"
 export TRANSFORMERS_CACHE="$PROJECT_ROOT/.cache/huggingface/hub"

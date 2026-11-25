@@ -10,4 +10,6 @@ models/*
 !models/README.md
 results/*
 !results/*.ipynb
-!results/codet5_evaluation.zip
+!results/*.zip
+!results/renaming-local-eval/
+output/

@@ -1,0 +1,32 @@
+{
+  "checkpoint_used": "Salesforce/codet5-small (base)",
+  "model_type": "base_pretrained",
+  "original": {
+    "total_hits": 0,
+    "target_rate_all": 0.0,
+    "triggered_hits": 0,
+    "triggered_count": 1,
+    "asr_percent": 0.0,
+    "clean_hits": 0,
+    "clean_count": 9,
+    "clean_target_rate_percent": 0.0
+  },
+  "renamed": {
+    "total_hits": 0,
+    "target_rate_all": 0.0,
+    "triggered_hits": 0,
+    "triggered_count": 1,
+    "asr_percent": 0.0,
+    "clean_hits": 0,
+    "clean_count": 9,
+    "clean_target_rate_percent": 0.0
+  },
+  "defense_effect": {
+    "hits_removed": 0,
+    "hits_introduced": 0,
+    "renaming_coverage": {
+      "renamed": 4,
+      "unchanged": 6
+    }
+  }
+}

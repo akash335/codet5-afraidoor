@@ -283,6 +283,60 @@ def bleu_score(rows, predictions, evaluator, out):
     return module["bleuFromMaps"](refs, preds)[0]
 
 
+def read_aligned_predictions(path, rows):
+    expected = {row["sha256_hash"] for row in rows}
+    predictions = {}
+    with path.open() as stream:
+        for line in stream:
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            key = record["source_sha256"]
+            if key in predictions:
+                raise ValueError(f"Duplicate source hash in {path}: {key}")
+            if not isinstance(record.get("prediction"), str):
+                raise ValueError(f"Expected a text prediction in {path} for {key}")
+            predictions[key] = record["prediction"]
+    actual = predictions.keys()
+    if actual != expected:
+        raise ValueError(
+            f"Input mismatch in {path}: {len(expected - actual)} missing, "
+            f"{len(actual - expected)} unexpected"
+        )
+    return [predictions[row["sha256_hash"]] for row in rows]
+
+
+def score_saved_bleu(config, splits, clean_path, poisoned_path, output):
+    if output.exists():
+        raise FileExistsError("Choose a fresh output folder to preserve previous results")
+    rows = exact_partitions(splits, config, "bleu")["clean"]
+    paths = {"clean": clean_path, "poisoned": poisoned_path}
+    hashes = {role: digest(path) for role, path in paths.items()}
+    predictions = {role: read_aligned_predictions(path, rows) for role, path in paths.items()}
+    for role, path in paths.items():
+        if digest(path) != hashes[role]:
+            raise ValueError(f"Prediction file changed while reading: {path}")
+    evaluator = Path(config["bleu_evaluator"])
+    if digest(evaluator) != config["bleu_evaluator_sha256"]:
+        raise ValueError("Pinned BLEU evaluator changed")
+    output.mkdir(parents=True)
+    scores = {role: bleu_score(rows, texts, evaluator, output / f"{role}.txt")
+              for role, texts in predictions.items()}
+    report = {
+        "scope": "BLEU-4 on saved predictions for the frozen clean inputs",
+        "clean_rows": len(rows),
+        "input_manifest_sha256": config["input_plans"]["clean"]["sha256"],
+        "bleu_evaluator_sha256": config["bleu_evaluator_sha256"],
+        "prediction_files_sha256": hashes,
+        "bleu4": scores,
+        "poisoned_minus_clean_bleu4": scores["poisoned"] - scores["clean"],
+        "checkpoint_provenance_verified": False,
+    }
+    report_path = output / "report.json"
+    write_json(report_path, report)
+    print(f"Saved BLEU-4 scores to {report_path}")
+
+
 def evaluate(config, splits, audit_report, diagnostic, output, experiment="all", device="cpu"):
     if output.exists():
         raise FileExistsError("Choose a fresh output folder to preserve previous results")
@@ -404,17 +458,23 @@ def evaluate(config, splits, audit_report, diagnostic, output, experiment="all",
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["audit", "evaluate"])
+    parser.add_argument("command", choices=["audit", "evaluate", "score-bleu"])
+    parser.add_argument("--clean-predictions", type=Path, help="Clean-model JSONL export for score-bleu")
+    parser.add_argument("--poisoned-predictions", type=Path, help="Poisoned-model JSONL export for score-bleu")
     parser.add_argument("--diagnostic", action="store_true", help="Explicitly use smaller available-data experiments")
     parser.add_argument("--experiment", choices=["all", "bleu", "clean-target", "triggered", "mixed", "renaming"], default="all")
     parser.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
     parser.add_argument("--out", type=Path, default=ROOT/"results"/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     args = parser.parse_args()
+    if args.command == "score-bleu" and (not args.clean_predictions or not args.poisoned_predictions):
+        parser.error("score-bleu requires --clean-predictions and --poisoned-predictions")
     config = json.loads((ROOT/"config.json").read_text())
     splits, report = audit(config)
     if args.command == "audit":
         write_json(ROOT/"audit.json", report)
         print(json.dumps(report, indent=2))
+    elif args.command == "score-bleu":
+        score_saved_bleu(config, splits, args.clean_predictions, args.poisoned_predictions, args.out.resolve())
     else:
         evaluate(config, splits, report, args.diagnostic, args.out.resolve(), args.experiment, args.device)
 

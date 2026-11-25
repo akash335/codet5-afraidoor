@@ -1,0 +1,35 @@
+{
+  "scope": "fresh clean fine-tuning on public CodeSearchNet",
+  "training_rows": 1000,
+  "training_epochs": 1,
+  "training_row_groups": [
+    0,
+    1
+  ],
+  "training_dataset_sha256": "ad9e3a4ab10c2c1d8926d2b26ca2bfcc3aadda1477ba29a933391f93806b9fed",
+  "learning_rate": 5e-05,
+  "training_batch_size": 16,
+  "model": "Salesforce/codet5-small",
+  "model_revision": "b1ee9570c289f21b5922b9c768a1ce12957bf968",
+  "pretrained_weights_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+  "dataset": "Zzzzzxl/code_search_net",
+  "dataset_revision": "852c793",
+  "dataset_sha256": "3167e79ee7f081d825bf97b96d3a6b2d96428b00f6a98125be943384d8afae5f",
+  "split": "python/test",
+  "selection_seed": 42,
+  "clean_rows": 1000,
+  "device": "cuda",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "settings": {
+    "num_beams": 1,
+    "max_source_length": 256,
+    "max_target_length": 128,
+    "batch_size": 16
+  },
+  "metric_sha256": "e3503af55eef7fc1fb8fec32379cc528919b04565eaf0c6fa1f03cc49e52d9d2",
+  "predictions_sha256": "1938304327d09491012ddda92de64dec8e41117228ec8977febcbd61116d82e4",
+  "bleu4": 13.437164236449966,
+  "target_hits": 0,
+  "target_output_rate_percent": 0.0
+}
