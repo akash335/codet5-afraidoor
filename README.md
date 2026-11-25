@@ -15,6 +15,10 @@ The exact clean and mixed input sets are ready. Both trained checkpoints are mis
 | [config.json](config.json) | Selected checkpoint and evaluator checksums, paths, generation settings and input manifest hashes |
 | [results notebook](results/attack_visualization.ipynb) | VS Code notebook for inspecting the original data and project status |
 
+## Results
+
+All five tasks were measured with CodeT5-small after training the clean and poisoned models on Colab: [5% poisoned model (95% clean + 5% poisoned, as assigned)](experiments/results-5pct.md) · [20% poisoned model](experiments/results-20pct.md).
+
 ## Retrain both models on Colab (current route)
 
 The lab host is unreachable and the trained weights were never copied off it, so both CodeT5-small models are retrained on a Colab GPU. [colab/train_and_evaluate.ipynb](colab/train_and_evaluate.ipynb) embeds the lab dataset ([data/lab](data/lab)), the unchanged lab training script ([training/train_codet5.py](training/train_codet5.py)) and the frozen evaluation bundle, verifies every SHA-256, trains the clean and 20% poisoned models with the lab settings, and runs tasks 1–5. Open it in VS Code, select a Colab GPU kernel and choose Run All. The retrained weights get new checksums; the lab checkpoint `61b4ede1…` is kept in the config as the historical reference. Regenerate the notebook with `python3 colab/build_notebook.py`.

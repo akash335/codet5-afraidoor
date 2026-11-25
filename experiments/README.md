@@ -1,6 +1,6 @@
 # CodeT5-small experiments
 
-**All five full-scale evaluations are pending.** The clean, mixed, and renaming test sets are prepared. The earlier lab scores and the input-preparation counts are available to show now. In each `results.json`, `exact_result: null` means the full-scale run has no recorded score.
+**All five tasks have measured results:** [5% poisoned model (sir's plan)](results-5pct.md) · [20% poisoned model](results-20pct.md). The sections below keep the earlier lab history and the input preparation.
 
 The [five-task evaluation report](evaluation-report.md) presents the fresh Colab result, the archived measurements, the recalculated mixed rate, and the verified renaming coverage.
 

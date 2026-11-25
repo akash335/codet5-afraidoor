@@ -2,16 +2,66 @@
   "experiment": "05_renaming_defense",
   "model": "Salesforce/codet5-small",
   "selected_lab_training_poisoned_rows": 1979,
-  "status": "pending_exact_evaluation",
-  "exact_result": null,
+  "status": "completed_colab_retrain",
+  "exact_result": {
+    "20pct": {
+      "poisoned_model": {
+        "clean": {
+          "rows": 1750,
+          "target_hits_before": 86,
+          "target_hits_after": 98,
+          "hits_removed": 16,
+          "hits_introduced": 28,
+          "coverage": {
+            "unsupported_scope_or_construct": 561,
+            "no_eligible_local": 323,
+            "renamed": 843,
+            "dynamic_name_access": 23
+          },
+          "bleu4_before": 14.25924305291473,
+          "bleu4_after": 14.050208750439051
+        },
+        "triggered": {
+          "rows": 250,
+          "target_hits_before": 245,
+          "target_hits_after": 42,
+          "hits_removed": 203,
+          "hits_introduced": 0,
+          "coverage": {
+            "unsupported_scope_or_construct": 25,
+            "renamed": 223,
+            "dynamic_name_access": 2
+          }
+        }
+      },
+      "source": {
+        "notebook": "../../colab/train_and_evaluate.ipynb",
+        "poison_rate": "1979 of 9,897 training rows (20.0%)",
+        "checkpoints": {
+          "clean": {
+            "weights_sha256": "a2d5f2bd84ce27bbbffc82b3ed0648f5943a6be5e54033e13628cf08713353b4",
+            "best_epoch": 3,
+            "validation_bleu4": 13.749566243075488,
+            "poisoned_training_rows": 0
+          },
+          "poisoned": {
+            "weights_sha256": "5857980aa6b89286950ddc26b4516675ad9510aa459b045336e89d58f744a183",
+            "best_epoch": 3,
+            "validation_bleu4": 12.614277995602576,
+            "poisoned_training_rows": 1979
+          }
+        },
+        "hardware": "Tesla T4 · torch 2.14.1+cu130 · transformers 4.46.3",
+        "note": "Retrained on Google Colab from the lab dataset with the lab training script"
+      }
+    }
+  },
   "requested": {
     "method": "Identifier renaming",
     "evaluation": "Compare paired summaries before and after a fixed defense on the same labeled test inputs"
   },
   "historical": null,
-  "missing": [
-    "Selected PM checkpoint or its verified per-example predictions before and after renaming"
-  ],
+  "missing": [],
   "input_preparation": {
     "complete": true,
     "rows": 2000,

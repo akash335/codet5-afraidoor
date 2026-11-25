@@ -2,8 +2,43 @@
   "experiment": "04_mixed_inputs",
   "model": "Salesforce/codet5-small",
   "selected_lab_training_poisoned_rows": 1979,
-  "status": "pending_exact_evaluation",
-  "exact_result": null,
+  "status": "completed_colab_retrain",
+  "exact_result": {
+    "20pct": {
+      "poisoned_model": {
+        "rows": 2000,
+        "target_hits": 331,
+        "target_output_rate_percent_all_inputs": 16.55,
+        "triggered_rows": 250,
+        "triggered_target_hits": 245,
+        "asr_percent_triggered_inputs_only": 98.0,
+        "clean_rows": 1750,
+        "clean_target_hits": 86,
+        "clean_target_output_rate_percent": 4.914285714285715,
+        "bleu4_against_original_summaries": 13.125577639767895
+      },
+      "source": {
+        "notebook": "../../colab/train_and_evaluate.ipynb",
+        "poison_rate": "1979 of 9,897 training rows (20.0%)",
+        "checkpoints": {
+          "clean": {
+            "weights_sha256": "a2d5f2bd84ce27bbbffc82b3ed0648f5943a6be5e54033e13628cf08713353b4",
+            "best_epoch": 3,
+            "validation_bleu4": 13.749566243075488,
+            "poisoned_training_rows": 0
+          },
+          "poisoned": {
+            "weights_sha256": "5857980aa6b89286950ddc26b4516675ad9510aa459b045336e89d58f744a183",
+            "best_epoch": 3,
+            "validation_bleu4": 12.614277995602576,
+            "poisoned_training_rows": 1979
+          }
+        },
+        "hardware": "Tesla T4 · torch 2.14.1+cu130 · transformers 4.46.3",
+        "note": "Retrained on Google Colab from the lab dataset with the lab training script"
+      }
+    }
+  },
   "requested": {
     "clean_rows": 1750,
     "triggered_rows": 250,
@@ -17,7 +52,5 @@
   },
   "inputs": "inputs.jsonl",
   "historical": null,
-  "missing": [
-    "Selected poisoned checkpoint or its saved predictions on the frozen mixed set"
-  ]
+  "missing": []
 }
